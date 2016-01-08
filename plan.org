@@ -93,6 +93,7 @@ Output:
 - https://github.com/uri-templates/uritemplate-test
 - https://github.com/uri-templates/uritemplate-py
 - https://github.com/sporkmonger/addressable
+- https://github.com/vsedach/uri-template
 
 * COMMENT org settings						   :noexport:
 #+LANGUAGE: en
