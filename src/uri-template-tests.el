@@ -1,9 +1,8 @@
-;;; uri-templates-tests.el --- URI templates for Emacs     -*- lexical-binding: t; -*-
+;;; uri-templates-tests.el --- Tests URI templates for Emacs     -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2016 William Clifford
 
 ;; Author: William Clifford <wobh@yahoo.com>
-;; Keywords: comm
 
 ;; This file is not part of Emacs.
 
@@ -28,6 +27,24 @@
 
 (require 'uri-template)
 
+(ert-deftest uri-template-tests-expand ()
+  "Basic test of `uri-template-expand'"
+  (let ((subject-template "{scheme}://{host}/{url-path}")
+	(subject-mapping '((scheme   . "http")
+			   (host     . "zombo.com")
+			   (url-path . "welcome"))))
+    (should
+     (string= "http://zombo.com/welcome"
+	      (uri-template-expand subject-template
+				   subject-mapping)))))
+
+(ert-deftest uri-template-tests-extract ()
+  "Basic test of `uri-template-extract'"
+  (let ((subject-template "{scheme}://{host}/{url-path}")
+	(subject-uri "http://zombo.com/welcome"))
+    (should
+     (equal '((scheme . "http") (host . "zombo.com") (url-path . "welcome"))
+	    (uri-template-extract subject-template subject-uri)))))
 
 (provide 'uri-template-tests)
 ;;; uri-templates.el ends here
