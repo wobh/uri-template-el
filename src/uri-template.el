@@ -26,7 +26,13 @@
 
 ;;; Code:
 
+(defun uri-template-expand (template mapping)
+  "Expand uri template to uri string"
+  )
 
+(defun uri-template-extract (template uri)
+  "Extract data from uri using tempate"
+  )
 
 (provide 'uri-template)
 ;;; uri-templates.el ends here
