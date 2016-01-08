@@ -1,0 +1,105 @@
+#+TITLE: URI Template for Emacs Plan
+#+DATE: <2016-01-07 Thu>
+#+AUTHOR: William Clifford
+#+EMAIL: wobh@yahoo.com
+
+* Draft API
+
+Basic commands:
+
+- ~expand~
+- ~extract~
+- ~inspect~
+
+** Expanding templates
+
+- Function :: ~uri-template-expand~
+- Parameters ::
+  + ~template~ :: string
+  + ~mapping~ :: mapping (alist, plist) of template "stencils" to data
+- Failure :: TBD (nil? error?)
+- Success :: url string
+
+#+NAME: uri-template-api-expand
+#+BEGIN_SRC elisp
+  (uri-template-expand "{scheme}://{host}/{url-path}"
+                       '((scheme   . "http")
+                         (host     . "zombo.com")
+                         (url-path . "welcome")))
+#+END_SRC
+
+Output:
+
+: http://zombo.com/welcome
+
+** Extracting data with templates
+
+- Function :: ~uri-template-extract~
+- Parameters ::
+  - ~template~ :: string
+  - ~uri~ :: string
+- Failure :: TBD
+- Success :: mapping (alist? plist?)
+
+#+NAME: uri-template-api-expand-symbol
+#+BEGIN_SRC elisp
+  (uri-template-extract "{scheme}://{host}/{url-path}" "http://zombo.com/welcome")
+#+END_SRC
+
+Output:
+
+: '((scheme . "http") (host . "zombo.com") (url-path . "welcome")))
+
+** Inspecting templates
+
+- Function :: ~uri-template-inspect~
+- Parameters ::
+  - ~template~ :: string
+- Failure :: TBD
+- Success :: list of symbols in template
+
+#+NAME: uri-template-api-inspect
+#+BEGIN_SRC elisp
+  (uri-template-inspect "{scheme}://{host}/{url-path}")
+#+END_SRC
+
+Output:
+
+: '(scheme host url-path)
+
+* Ambitions [0/19]
+
+** TODO [#A] ert test suite
+** TODO [#A] expand from alists to url string
+** TODO [#A] extract to alists from url string
+** TODO [#A] support level 1 templates
+** TODO [#B] draw test suite from [[https://github.com/uri-templates/uritemplate-test][uritemplate-test]]
+** TODO [#B] expand from plists
+** TODO [#B] extract to plists
+** TODO [#B] support level 2 templates
+** TODO [#B] texinfo documentation
+** TODO [#C] inspect templates
+** TODO [#C] support level 3 templates
+** TODO [#C] expand from url package structs
+** TODO [#C] extract to url package structs
+** TODO support level 4 templates
+** TODO support partial expansion
+** TODO convert tempate to regexp
+
+* References
+
+- https://www.rfc-editor.org/rfc/rfc6570.txt
+- https://github.com/uri-templates/uritemplate-spec
+- https://github.com/uri-templates/uritemplate-test
+- https://github.com/uri-templates/uritemplate-py
+- https://github.com/sporkmonger/addressable
+
+* COMMENT org settings						   :noexport:
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 8.3.2)
+#+OPTIONS: ':nil *:t -:t ::t <:t H:6 \n:nil ^:t arch:headline
+#+OPTIONS: author:t c:nil creator:nil d:(not "LOGBOOK") date:t e:t
+#+OPTIONS: email:nil f:t inline:t num:nil p:t pri:t prop:nil stat:t
+#+OPTIONS: tags:t tasks:t tex:t timestamp:t title:t toc:nil todo:t |:t

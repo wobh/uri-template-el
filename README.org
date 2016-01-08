@@ -1,0 +1,25 @@
+#+TITLE: URI Template for Emacs README
+#+DATE: <2016-01-07 Thu>
+#+AUTHOR: William Clifford
+#+EMAIL: wobh@yahoo.com
+
+* TODO Introduction
+
+Emacs Lisp implementation of RFC 6570.
+
+* References
+
+- https://www.rfc-editor.org/rfc/rfc6570.txt
+- https://github.com/uri-templates/uritemplate-spec
+- https://github.com/uri-templates/uritemplate-test
+- https://github.com/uri-templates/uritemplate-py
+
+* COMMENT org settings						   :noexport:
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 8.3.2)
+#+OPTIONS: ':nil *:t -:t ::t <:t H:6 \n:nil ^:t arch:headline
+#+OPTIONS: author:t c:nil creator:nil d:(not "LOGBOOK") date:t e:t
+#+OPTIONS: email:nil f:t inline:t num:nil p:nil pri:nil prop:nil stat:t
+#+OPTIONS: tags:t tasks:t tex:t timestamp:t title:t toc:nil todo:t |:t
